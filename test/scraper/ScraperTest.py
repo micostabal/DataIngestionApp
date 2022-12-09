@@ -13,16 +13,6 @@ class ScraperTest(TestCase):
   mock_edition_number = 42969
   mock_date = date(2021, 6, 3)
   
-  def test_scraper_should_do_sth(self):
-    pass
-  
-  def test_can_mock_stuff(self):
-    mock_function = mock.create_autospec(next_number, return_value=45)
-    
-    siguiente = mock_function(99)
-    
-    self.assertEqual(siguiente, 45)
-  
   def test_should_get_edition_number(self):
 
     with open("./test/stubs/scraper/initialResponseF1.html", "r") as file:
