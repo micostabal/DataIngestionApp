@@ -30,9 +30,9 @@ class DateParserTest(TestCase):
   
   def test_should_parse_signle_publication_text(self):
     mock_cve="1954614"
-    mock_header="mock_header"
+    mock_text="mock document text"
     
-    with mock.patch.object(DateParser, 'get_doc', return_value="mock document text"):
+    with mock.patch.object(DateParser, 'get_doc', return_value=mock_text):
       with open("./test/stubs/scraper/singlePublicationPageResponse.html", "r") as file:
         scraped_text = file.read()
         publications = list(DateParserTest.dateParser.parse(
@@ -44,9 +44,7 @@ class DateParserTest(TestCase):
         first_publication = publications[0]
         
         self.assertEqual(first_publication.cve, mock_cve)
-  
-
-
+        self.assertEqual(first_publication.document_text, mock_text)
 
 
 if __name__ == "__main__":

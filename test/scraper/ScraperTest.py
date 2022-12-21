@@ -4,8 +4,6 @@ import requests
 import unittest
 from unittest import TestCase, mock
 
-def next_number(numero):
-  return numero+1
 
 class ScraperTest(TestCase):
   
